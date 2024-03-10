@@ -1,0 +1,19 @@
+{
+  "name": "yasmim",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "webpack && tailwindcss -i ./src/input.css -o ./dist/style.css --minify",
+    "dev": "webpack watch",
+    "style": "tailwindcss -i ./src/input.css -o ./dist/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}

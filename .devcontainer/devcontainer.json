@@ -1,5 +1,12 @@
 {
   "name": "Basic Node.js",
   "build": { "dockerfile": "Dockerfile" },
-  "remoteUser": "root"
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscode.git"
+      ]
+    }
+  }  
 }

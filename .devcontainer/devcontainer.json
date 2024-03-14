@@ -5,7 +5,9 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscode.git"
+        "vscode.git",
+        "bradlc.vscode-tailwindcss",
+        "ritwickdey.LiveServer"
       ]
     }
   }  

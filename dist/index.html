@@ -5,94 +5,308 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yasmim Magalhães</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css"
+        integrity="sha512-d0olNN35C6VLiulAobxYHZiXJmq+vl+BGIgAxQtD5+kqudro/xNMvv2yIHAciGHpExsIbKX3iLg+0B6d0k4+ZA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css"
+        integrity="sha512-8RxmFOVaKQe/xtg6lbscU9DU0IRhURWEuiI0tXevv+lXbAHfkpamD4VKFQRto9WgfOJDwOZ74c/s9Yesv3VvIQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css"
+        integrity="sha512-pZlKGs7nEqF4zoG0egeK167l6yovsuL8ap30d07kA5AJUq+WysFlQ02DLXAmN3n0+H3JVz5ni8SJZnrOaYXWBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/mystyles.css">
+    <link rel="icon" type="image/x-icon" href="./Logo02.png">
+    <script defer src="./js/bundle.js"></script>
 </head>
 
-<body class="">
-    <div class="flex flex-col justify-center items-center px-12">
+<body class="has-background-white-ter"></body>
 
-        <main class="h-screen flex flex-col justify-around">
+    <div id="wrapper" class="hero is-fullheight" x-data="app" @scroll.window="showElement(window.scrollY)">
 
-            <div id="presentation" class="flex">
+        <header class="hero-head is-primary has-background-white-bis is-hidden-touch">
+            <div class="container is-max-widescreen py-6">
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="/">
+                            <img src="./Logo02.png" width="28" height="28" >
+                        </a>
+                    </div>
 
-                <div id="contact" class="flex flex-col justify-center">
+                    <div id="navbarBasicExample" class="navbar-menu">
 
-                    <span></span>
-
-                    <figure>
-                        <img src="Logo01.png" alt="Logo">
-                    </figure>
-
-                    <div class="flex flex-col justify-between sm:flex-row font-extralight" id="contact">
-
-                        <div class="text-center rounded-full border-2 border-stone-600">
-                            <a href="">
-                                <svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" height="32" width="28"
-                                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                    <path
-                                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-                                </svg>
-                                <p>Whatsapp</p>
+                        <div class="navbar-start has-text-weight-light is-size-5-tablet">
+                            <a class="navbar-item has-text-grey-dark" href="#sobre-mim"
+                                @mouseover="mudaCorLink($event, 'has-text-dark')"
+                                @mouseout="$event.target.classList.remove('has-text-dark')">
+                                Sobre mim
+                            </a>
+                            <a class="navbar-item has-text-grey-dark" href="#abordagem"
+                                @mouseover="mudaCorLink($event, 'has-text-dark')"
+                                @mouseout="$event.target.classList.remove('has-text-dark')">
+                                Abordagem
+                            </a>
+                            <a class="navbar-item has-text-grey-dark" href="#servicos"
+                                @mouseover="mudaCorLink($event, 'has-text-dark')"
+                                @mouseout="$event.target.classList.remove('has-text-dark')">
+                                Serviços
+                            </a>
+                            <a class="navbar-item has-text-grey-dark" href="#academico"
+                                @mouseover="mudaCorLink($event, 'has-text-dark')"
+                                @mouseout="$event.target.classList.remove('has-text-dark')">
+                                Supervisão clínica
+                            </a>
+                            <a class="navbar-item has-text-dark" href="#academico"
+                                @mouseover="mudaCorLink($event, 'has-text-dark')"
+                                @mouseout="$event.target.classList.remove('has-text-dark')">
+                                Cursos de extensão
                             </a>
                         </div>
-        
-                        <div class="text-center">
-                            <a href="">
-        
-        
-                                <svg class="mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" height="32" width="28"
-                                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                    <path
-                                        d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                                </svg>
-                                <p>Instagram</p>
-                            </a>
-                        </div>
-        
-                        <div class="text-center">
-                            <a href="">
-                                <svg class="mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" height="32" width="32"
-                                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                    <path
-                                        d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
-                                </svg>
-                                <p>Telefone</p>
-                            </a>
-                        </div>
-        
-                        <div class="text-center">
-                            <a href="">
-                                <svg class="mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" height="32" width="24"
-                                    viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                                    <path
-                                        d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
-                                </svg>
-                                <p>Endereço</p>
-                            </a>
-                        </div>
-        
-                    </div>                    
 
-                </div>
-
-                <figure>
-                    <img src="yasmin.jpg" alt="Yasmim Magalhães" class="mx-auto">
-                </figure>
-    
-
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="tags has-addons">
+                                    <span class="tag is-rounded is-medium">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-phone"></i>
+                                        </span>
+                                    </span>
+                                    <span class="tag is-rounded is-medium has-text-weight-light">+55 (61)
+                                        99376-7802</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
 
             </div>
 
+        </header>
+
+        <main class="hero-body">
+            <div class="container is-max-widescreen">
+                <div class="columns is-vcentered fade-in" :style="{ opacity: 1 }">
+                    <div class="column">
+                        <figure class="image py-5">
+                            <img src="./Logo01.png" alt="Yasmim Magalhães" >
+                        </figure>
+                        <div class="columns is-centered is-mobile has-text-centered">
+                            <div class="column">
+                                <a href="whatsapp://send?phone=5561993767802&amp;text&amp;app_absent=0"
+                                    class="has-text-grey" @mouseover="mudaCorLink($event, 'has-text-primary')"
+                                    @mouseout="$event.target.classList.remove('has-text-primary')">
+                                    <span class="icon is-size-4">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </span>
+                                    <p>Whatsapp</p>
+                                </a>
+                            </div>
+                            <div class="column">
+                                <a href="https://instagram.com/yasmim.psc" target="_blank" class="has-text-grey"
+                                    @mouseover="mudaCorLink($event, 'has-text-danger-dark')"
+                                    @mouseout="$event.target.classList.remove('has-text-danger-dark')">
+                                    <span class="icon is-size-4">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </span>
+                                    <p>Instagram</p>
+                                </a>
+                            </div>
+                            <div class="column">
+                                <a href="tel:+5561993767802" class="has-text-grey"
+                                    @mouseover="mudaCorLink($event, 'has-text-info-dark')"
+                                    @mouseout="$event.target.classList.remove('has-text-info-dark')">
+                                    <span class="icon is-size-4">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </span>
+                                    <p>Telefone</p>
+                                </a>
+                            </div>
+                            <div class="column">
+                                <a href="https://www.google.com/maps/search/?api=1&amp;query=Yasmim+Magalhães+-+Psicóloga+Brasilia+DF&amp;query_place_id:ChIJDbg9n-85WpMRvTY6R42RP-E"
+                                    target="_blank" class="has-text-grey"
+                                    @mouseover="mudaCorLink($event, 'has-text-warning-dark')"
+                                    @mouseout="$event.target.classList.remove('has-text-warning-dark')">
+                                    <span class="icon is-size-4"><i class="fa-solid fa-location-dot"></i></span>
+                                    <p>Endereço</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <figure class="image">
+                            <img src="./yasmim.jpg" alt="Yasmim Magalhães" >
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Sobre mim -->
+                <div class="card my-6 fade-in" x-ref="sobreMim">
+                    <div class="card-content">
+                        <div class="columns">
+                            <div class="column">
+                                <figure class="image">
+                                    <img src="./yasmim2.jpg" alt="Yasmim Magalhães" >
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <div class="content">
+                                    <h1 id="sobre-mim">Sobre mim</h1>
+                                    <p>
+                                        Psicóloga clínica, mestre em saúde coletiva pela Universidade de Brasília (UnB).
+                                        Atualmente
+                                        doutoranda do programa de pós-graduação em clínica e cultura, do Instituto de
+                                        Psicologia
+                                        (IP/UnB), no desenvolvimento de pesquisa com ênfase no manejo e intervenção em
+                                        crises
+                                        psicóticas. É professora universitária, e leciona as disciplinas de teorias
+                                        psicanalíticas,
+                                        psicologia sistêmica familiar, psicopatologia e estágio clínico curricular.
+                                        Pesquisadora
+                                        e
+                                        supervisora clínico-institucional. Realiza acompanhamento psicoterápico,
+                                        adolescente e
+                                        adulto, em formato presencial e online.
+                                    </p>
+                                </div>
+
+                                <!-- <p class="title is-size-4 has-text-grey">
+                                    “There are two hard things in computer science: cache invalidation, naming things,
+                                    and off-by-one errors.”
+                                </p>
+                                <p class="subtitle">
+                                    Jeff Atwood
+                                </p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abordage, -->
+                <div class="content fade-in" x-ref="abordagem">
+
+                    <h1 id="abordagem">Abordagem</h1>
+                    <p>
+                        Abordagem psicanalítica.
+                        A psicanálise considera o encontro terapêutico como uma proposta de reconhecer/relembrar
+                        a
+                        experiência emocional, que constantemente não processamos bem.  O terapeuta vai se
+                        ocupar de
+                        traduzir o olhar interno de seus pacientes, que quando refletidos à luz da consciência,
+                        expandem
+                        o potencial transformador da realidade.
+                    </p>
+
+                    <h1 id="servicos">Serviços</h1>
+                    <p>
+                        Atendimento Individual.
+                        As sessões de terapia individual têm duração de 50 min, em dias e horários previamente
+                        agendados. O público-alvo é adolescente (a partir de 14 anos) e adulto. Os atendimentos
+                        contam com a confidencialidade e segurança das informações conforme o contrato
+                        ético/profissional do psicólogo.
+                    </p>
+                    <p>
+                        <strong>On-line: </strong>
+                        É importante garantir um sinal de internet que comporte a videochamada, em ambiente
+                        isolado e silencioso. Sentir-se à vontade, em local protegido, é importante durante seu
+                        atendimento, para que haja conforto em dizer o que achar necessário, sem sentir que pode
+                        ser interrompido ou ouvido por terceiros.
+                    </p>
+                    <p>
+                        <strong>Presencial:</strong>
+                        O consultório está localizado no Edifício Life Center, Setor terminal norte (STN), sala
+                        256, Brasília/DF. A agenda funciona com dias e horários.
+                    </p>
+
+                </div>
+
+                <div class="columns py-6 fade-in" x-ref="academico">
+                    <div class="column are-same-height">
+                        <div class="card" id="academico">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="./yasmim4.jpg" alt="Yasmim Magalhães" >
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h1>Supervisão clínica</h1>
+                                    <p>
+                                        Para psicólogos de atuação clínica, estudantes/recém-formados, e profissionais
+                                        que atuam
+                                        com políticas públicas em saúde mental. A supervisão é parte importante do
+                                        desenvolvimento profissionais de saúde que atuam com psicoterapia e atenção
+                                        psicossocial, uma vez que, potencializa o olhar sobre a discussão de casos,
+                                        processos de
+                                        trabalho, e fomenta possibilidades de intervenção a partir de teorias e técnicas
+                                        partilhadas pela troca de experiências.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column are-same-height">
+                        <div class="card" id="cursos-extensao">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="./yasmim3.jpg" alt="Yasmim Magalhães" >
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h1>Cursos de extensão</h1>
+                                    <p>
+                                        Destinados a estudantes e psicólogos com interesses em psicopatologia
+                                        psicanalítica,
+                                        intervenções em crise, e literatura como arte do encontro terapêutico, algumas
+                                        propostas
+                                        de cursos livres serão ofertadas em modalidade presencial – Brasília/DF.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
+                <div class="box fade-in" x-ref="localizacao">
+                    <div class="icon-text py-4">
+                        <span class="icon">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                        </span>
+                        <span>
+                            Edifício Life Center, Setor Terminal Norte (STN), sala
+                            256, Brasília/DF
+                        </span>
+                    </div>
 
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3840.358358205065!2d-47.89633!3d-15.7321706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a39ef9f3db80d%3A0xe13f918d473a36bd!2sYasmim%20Magalh%C3%A3es%20-%20Psic%C3%B3loga!5e0!3m2!1sen!2sbr!4v1710198164164!5m2!1sen!2sbr"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" 
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </div>
+            </div>
 
         </main>
-        <footer class="flex justify-center text-white">
-            <p>Yasmim Magalhães</p>
+
+        <footer class="hero-footer has-background-white-bis">
+            <section class="section has-text-centered">
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fa-solid fa-copyright"></i>
+                    </span>
+                    <span>
+                        Yasmim Magalhães
+                    </span>
+                </span>
+
+            </section>
         </footer>
+
     </div>
-    <script src="main.js"></script>
+
+
 </body>
+
+
 
 </html>

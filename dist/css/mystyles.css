@@ -5,6 +5,7 @@
 /*!********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./src/mystyles.scss (1) ***!
   \********************************************************************************************************************************************/
+@charset "UTF-8";
 /* Bulma Base */
 /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 html,
@@ -5844,9 +5845,39 @@ html {
 
 .fade-in {
   opacity: 0;
-  transition: opacity 2s;
+}
+
+.show {
+  opacity: 1 !important;
+  transition: opacity 1s ease-in-out;
 }
 
 .are-same-height {
   display: flex;
+}
+
+.navbar-item {
+  transition: color 0.3s ease;
+  color: #686868; /* Cor correspondente à classe 'has-text-grey-dark' */
+}
+
+.navbar-item:hover {
+  color: #000000 !important; /* Cor correspondente à classe 'has-text-dark' */
+  text-decoration: none; /* Remove o sublinhado do link */
+}
+
+.whatsapp-link:hover {
+  color: #00d154 !important; /* Cor correspondente à classe 'has-text-primary' */
+}
+
+.instagram-link:hover {
+  color: #ff3860 !important; /* Cor correspondente à classe 'has-text-danger-dark' */
+}
+
+.phone-link:hover {
+  color: #197abc !important; /* Cor correspondente à classe 'has-text-info-dark' */
+}
+
+.address-link:hover {
+  color: #bea337 !important; /* Cor correspondente à classe 'has-text-warning-dark' */
 }

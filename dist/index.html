@@ -19,265 +19,282 @@
     <script defer src="./js/bundle.js"></script>
 </head>
 
-<body class="has-background-white-ter"></body>
+<body class="has-background-white-ter">
 
-<div id="wrapper" class="hero is-fullheight" x-data="app" @scroll.window="showElement()">
 
-    <header class="hero-head is-primary has-background-white-bis is-hidden-touch">
-        <div class="container is-max-widescreen py-6">
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="/">
-                        <img src="./Logo02.png" width="28" height="28">
-                    </a>
-                </div>
+    <div id="wrapper" class="hero is-fullheight" x-data="app" @scroll.window="showElement()">
 
-                <div id="navbarBasicExample" class="navbar-menu">
-
-                    <div class="navbar-start has-text-weight-light is-size-5-tablet">
-                        <a class="navbar-item" href="#sobre-mim">Sobre mim</a>
-                        <a class="navbar-item" href="#abordagem">Abordagem</a>
-                        <a class="navbar-item" href="#servicos">Serviços</a>
-                        <a class="navbar-item" href="#academico">Supervisão clínica</a>
-                        <a class="navbar-item" href="#academico">Cursos de extensão</a>
-                    </div>
-
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <div class="tags has-addons">
-                                <span class="tag is-rounded is-medium">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-phone"></i>
-                                    </span>
-                                </span>
-                                <span class="tag is-rounded is-medium has-text-weight-light">+55 (61)
-                                    99376-7802</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
+        <!-- Loader -->
+        <div class="modal" :class="{ 'is-active': loading }" id="loader">
+            <div class="modal-background"></div>
+            <div class="modal-content py-5">
+                <figure class="image is-128x128 mx-auto">
+                    <img src="./Logo02.png" alt="Yasmim Magalhães">
+                </figure>
+            </div>
         </div>
 
-    </header>
-
-    <main class="hero-body">
-        <div class="container is-max-widescreen">
-            <div class="columns is-vcentered fade-in" x-ref="logo">
-                <div class="column">
-                    <figure class="image py-5">
-                        <img data-src="./Logo01.png" alt="Yasmim Magalhães">
-                    </figure>
-                    <div class="columns is-centered is-mobile has-text-centered">
-                        <div class="column">
-                            <a href="whatsapp://send?phone=5561993767802&text&app_absent=0"
-                                class="has-text-grey whatsapp-link">
-                                <span class="icon is-size-4">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                </span>
-                                <p>Whatsapp</p>
-                            </a>
-                        </div>
-                        <div class="column">
-                            <a href="https://instagram.com/yasmim.psc" target="_blank"
-                                class="has-text-grey instagram-link">
-                                <span class="icon is-size-4">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </span>
-                                <p>Instagram</p>
-                            </a>
-                        </div>
-                        <div class="column">
-                            <a href="tel:+5561993767802" class="has-text-grey phone-link">
-                                <span class="icon is-size-4">
-                                    <i class="fa-solid fa-phone"></i>
-                                </span>
-                                <p>Telefone</p>
-                            </a>
-                        </div>
-                        <div class="column">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Yasmim+Magalhães+-+Psicóloga+Brasilia+DF&query_place_id:ChIJDbg9n-85WpMRvTY6R42RP-E"
-                                target="_blank" class="has-text-grey address-link">
-                                <span class="icon is-size-4"><i class="fa-solid fa-location-dot"></i></span>
-                                <p>Endereço</p>
-                            </a>
-                        </div>
+        <!-- Header -->
+        <header class="hero-head is-primary has-background-white-bis is-hidden-touch">
+            <div class="container is-max-widescreen py-6">
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="/">
+                            <img src="./Logo02.png" width="28" height="28">
+                        </a>
                     </div>
 
-                </div>
-                <div class="column">
-                    <figure class="image">
-                        <img data-src="./yasmim.jpg" alt="Yasmim Magalhães">
-                    </figure>
-                </div>
+                    <div id="navbarBasicExample" class="navbar-menu">
+
+                        <div class="navbar-start has-text-weight-light is-size-5-tablet">
+                            <a class="navbar-item" href="#sobre-mim">Sobre mim</a>
+                            <a class="navbar-item" href="#abordagem">Abordagem</a>
+                            <a class="navbar-item" href="#servicos">Serviços</a>
+                            <a class="navbar-item" href="#academico">Supervisão clínica</a>
+                            <a class="navbar-item" href="#academico">Cursos de extensão</a>
+                        </div>
+
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="tags has-addons">
+                                    <span class="tag is-rounded is-medium">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-phone"></i>
+                                        </span>
+                                    </span>
+                                    <span class="tag is-rounded is-medium has-text-weight-light">+55 (61)
+                                        99376-7802</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
             </div>
 
-            <!-- Sobre mim -->
-            <div class="card my-6 fade-in" x-ref="sobreMim">
-                <div class="card-content">
-                    <div class="columns">
-                        <div class="column">
-                            <figure class="image">
-                                <img data-src="./yasmim2.jpg" alt="Yasmim Magalhães">
-                            </figure>
-                        </div>
-                        <div class="column">
-                            <div class="content">
-                                <h1 id="sobre-mim">Sobre mim</h1>
-                                <p>
-                                    Psicóloga clínica, mestre em saúde coletiva pela Universidade de Brasília (UnB).
-                                    Atualmente
-                                    doutoranda do programa de pós-graduação em clínica e cultura, do Instituto de
-                                    Psicologia
-                                    (IP/UnB), no desenvolvimento de pesquisa com ênfase no manejo e intervenção em
-                                    crises
-                                    psicóticas. É professora universitária, e leciona as disciplinas de teorias
-                                    psicanalíticas,
-                                    psicologia sistêmica familiar, psicopatologia e estágio clínico curricular.
-                                    Pesquisadora
-                                    e
-                                    supervisora clínico-institucional. Realiza acompanhamento psicoterápico,
-                                    adolescente e
-                                    adulto, em formato presencial e online.
-                                </p>
-                            </div>
+        </header>
 
-                            <!-- <p class="title is-size-4 has-text-grey">
+        <!-- Body -->
+        <main class="hero-body">
+
+            <div class="container is-max-widescreen">
+
+                <!-- Logo -->
+                <div class="columns is-vcentered fade-in" x-ref="logo">
+                    <div class="column">
+                        <figure class="image py-5">
+                            <img data-src="./Logo01.png" alt="Yasmim Magalhães">
+                        </figure>
+                        <div class="columns is-centered is-mobile has-text-centered">
+                            <div class="column">
+                                <a href="whatsapp://send?phone=5561993767802&text&app_absent=0"
+                                    class="has-text-grey whatsapp-link">
+                                    <span class="icon is-size-4">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </span>
+                                    <p>Whatsapp</p>
+                                </a>
+                            </div>
+                            <div class="column">
+                                <a href="https://instagram.com/yasmim.psc" target="_blank"
+                                    class="has-text-grey instagram-link">
+                                    <span class="icon is-size-4">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </span>
+                                    <p>Instagram</p>
+                                </a>
+                            </div>
+                            <div class="column">
+                                <a href="tel:+5561993767802" class="has-text-grey phone-link">
+                                    <span class="icon is-size-4">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </span>
+                                    <p>Telefone</p>
+                                </a>
+                            </div>
+                            <div class="column">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Yasmim+Magalhães+-+Psicóloga+Brasilia+DF&query_place_id:ChIJDbg9n-85WpMRvTY6R42RP-E"
+                                    target="_blank" class="has-text-grey address-link">
+                                    <span class="icon is-size-4"><i class="fa-solid fa-location-dot"></i></span>
+                                    <p>Endereço</p>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="column">
+                        <figure class="image">
+                            <img data-src="./yasmim.jpg" alt="Yasmim Magalhães">
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Sobre mim -->
+                <div class="card my-6 fade-in" x-ref="sobreMim">
+                    <div class="card-content">
+                        <div class="columns">
+                            <div class="column">
+                                <figure class="image">
+                                    <img data-src="./yasmim2.jpg" alt="Yasmim Magalhães">
+                                </figure>
+                            </div>
+                            <div class="column">
+                                <div class="content">
+                                    <h1 id="sobre-mim">Sobre mim</h1>
+                                    <p>
+                                        Psicóloga clínica, mestre em saúde coletiva pela Universidade de Brasília (UnB).
+                                        Atualmente
+                                        doutoranda do programa de pós-graduação em clínica e cultura, do Instituto de
+                                        Psicologia
+                                        (IP/UnB), no desenvolvimento de pesquisa com ênfase no manejo e intervenção em
+                                        crises
+                                        psicóticas. É professora universitária, e leciona as disciplinas de teorias
+                                        psicanalíticas,
+                                        psicologia sistêmica familiar, psicopatologia e estágio clínico curricular.
+                                        Pesquisadora
+                                        e
+                                        supervisora clínico-institucional. Realiza acompanhamento psicoterápico,
+                                        adolescente e
+                                        adulto, em formato presencial e online.
+                                    </p>
+                                </div>
+
+                                <!-- <p class="title is-size-4 has-text-grey">
                                     “There are two hard things in computer science: cache invalidation, naming things,
                                     and off-by-one errors.”
                                 </p>
                                 <p class="subtitle">
                                     Jeff Atwood
                                 </p> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Abordage, -->
-            <div class="content fade-in" x-ref="abordagem">
-
-                <h1 id="abordagem">Abordagem</h1>
-                <p>
-                    Abordagem psicanalítica.
-                    A psicanálise considera o encontro terapêutico como uma proposta de reconhecer/relembrar
-                    a
-                    experiência emocional, que constantemente não processamos bem.  O terapeuta vai se
-                    ocupar de
-                    traduzir o olhar interno de seus pacientes, que quando refletidos à luz da consciência,
-                    expandem
-                    o potencial transformador da realidade.
-                </p>
-
-                <h1 id="servicos">Serviços</h1>
-                <p>
-                    Atendimento Individual.
-                    As sessões de terapia individual têm duração de 50 min, em dias e horários previamente
-                    agendados. O público-alvo é adolescente (a partir de 14 anos) e adulto. Os atendimentos
-                    contam com a confidencialidade e segurança das informações conforme o contrato
-                    ético/profissional do psicólogo.
-                </p>
-                <p>
-                    <strong>On-line: </strong>
-                    É importante garantir um sinal de internet que comporte a videochamada, em ambiente
-                    isolado e silencioso. Sentir-se à vontade, em local protegido, é importante durante seu
-                    atendimento, para que haja conforto em dizer o que achar necessário, sem sentir que pode
-                    ser interrompido ou ouvido por terceiros.
-                </p>
-                <p>
-                    <strong>Presencial:</strong>
-                    O consultório está localizado no Edifício Life Center, Setor terminal norte (STN), sala
-                    256, Brasília/DF. A agenda funciona com dias e horários.
-                </p>
-
-            </div>
-
-            <div class="columns py-6 fade-in" x-ref="academico">
-                <div class="column are-same-height">
-                    <div class="card" id="academico">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img data-src="./yasmim4.jpg" alt="Yasmim Magalhães">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="content">
-                                <h1>Supervisão clínica</h1>
-                                <p>
-                                    Para psicólogos de atuação clínica, estudantes/recém-formados, e profissionais
-                                    que atuam
-                                    com políticas públicas em saúde mental. A supervisão é parte importante do
-                                    desenvolvimento profissionais de saúde que atuam com psicoterapia e atenção
-                                    psicossocial, uma vez que, potencializa o olhar sobre a discussão de casos,
-                                    processos de
-                                    trabalho, e fomenta possibilidades de intervenção a partir de teorias e técnicas
-                                    partilhadas pela troca de experiências.
-                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="column are-same-height">
-                    <div class="card" id="cursos-extensao">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img data-src="./yasmim3.jpg" alt="Yasmim Magalhães">
-                            </figure>
+
+                <!-- Abordagem -->
+                <div class="content fade-in" x-ref="abordagem">
+
+                    <h1 id="abordagem">Abordagem</h1>
+                    <p>
+                        Abordagem psicanalítica.
+                        A psicanálise considera o encontro terapêutico como uma proposta de reconhecer/relembrar
+                        a
+                        experiência emocional, que constantemente não processamos bem.  O terapeuta vai se
+                        ocupar de
+                        traduzir o olhar interno de seus pacientes, que quando refletidos à luz da consciência,
+                        expandem
+                        o potencial transformador da realidade.
+                    </p>
+
+                    <h1 id="servicos">Serviços</h1>
+                    <p>
+                        Atendimento Individual.
+                        As sessões de terapia individual têm duração de 50 min, em dias e horários previamente
+                        agendados. O público-alvo é adolescente (a partir de 14 anos) e adulto. Os atendimentos
+                        contam com a confidencialidade e segurança das informações conforme o contrato
+                        ético/profissional do psicólogo.
+                    </p>
+                    <p>
+                        <strong>On-line: </strong>
+                        É importante garantir um sinal de internet que comporte a videochamada, em ambiente
+                        isolado e silencioso. Sentir-se à vontade, em local protegido, é importante durante seu
+                        atendimento, para que haja conforto em dizer o que achar necessário, sem sentir que pode
+                        ser interrompido ou ouvido por terceiros.
+                    </p>
+                    <p>
+                        <strong>Presencial:</strong>
+                        O consultório está localizado no Edifício Life Center, Setor terminal norte (STN), sala
+                        256, Brasília/DF. A agenda funciona com dias e horários.
+                    </p>
+
+                </div>
+
+                <!-- Acadêmico -->
+                <div class="columns py-6 fade-in" x-ref="academico">
+                    <div class="column are-same-height">
+                        <div class="card" id="academico">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img data-src="./yasmim4.jpg" alt="Yasmim Magalhães">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h1>Supervisão clínica</h1>
+                                    <p>
+                                        Para psicólogos de atuação clínica, estudantes/recém-formados, e profissionais
+                                        que atuam
+                                        com políticas públicas em saúde mental. A supervisão é parte importante do
+                                        desenvolvimento profissionais de saúde que atuam com psicoterapia e atenção
+                                        psicossocial, uma vez que, potencializa o olhar sobre a discussão de casos,
+                                        processos de
+                                        trabalho, e fomenta possibilidades de intervenção a partir de teorias e técnicas
+                                        partilhadas pela troca de experiências.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <div class="content">
-                                <h1>Cursos de extensão</h1>
-                                <p>
-                                    Destinados a estudantes e psicólogos com interesses em psicopatologia
-                                    psicanalítica,
-                                    intervenções em crise, e literatura como arte do encontro terapêutico, algumas
-                                    propostas
-                                    de cursos livres serão ofertadas em modalidade presencial – Brasília/DF.
-                                </p>
+                    </div>
+                    <div class="column are-same-height">
+                        <div class="card" id="cursos-extensao">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img data-src="./yasmim3.jpg" alt="Yasmim Magalhães">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h1>Cursos de extensão</h1>
+                                    <p>
+                                        Destinados a estudantes e psicólogos com interesses em psicopatologia
+                                        psicanalítica,
+                                        intervenções em crise, e literatura como arte do encontro terapêutico, algumas
+                                        propostas
+                                        de cursos livres serão ofertadas em modalidade presencial – Brasília/DF.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Localização -->
+                <div class="box fade-in" x-ref="localizacao">
+                    <div class="icon-text py-4">
+                        <span class="icon">
+                            <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                        </span>
+                        <span>
+                            Edifício Life Center, Setor Terminal Norte (STN), sala
+                            256, Brasília/DF
+                        </span>
+                    </div>
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3840.358358205065!2d-47.89633!3d-15.7321706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a39ef9f3db80d%3A0xe13f918d473a36bd!2sYasmim%20Magalh%C3%A3es%20-%20Psic%C3%B3loga!5e0!3m2!1sen!2sbr!4v1710198164164!5m2!1sen!2sbr"
+                        width="100%" height="450" style="border:0;" allowfullscreen=""
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                </div>
             </div>
 
+        </main>
 
-            <div class="box fade-in" x-ref="localizacao">
-                <div class="icon-text py-4">
+        <footer class="hero-footer has-background-white-bis">
+            <section class="section has-text-centered">
+                <span class="icon-text">
                     <span class="icon">
-                        <span class="icon"><i class="fa-solid fa-location-dot"></i></span>
+                        <i class="fa-solid fa-copyright"></i>
                     </span>
                     <span>
-                        Edifício Life Center, Setor Terminal Norte (STN), sala
-                        256, Brasília/DF
+                        Yasmim Magalhães
                     </span>
-                </div>
-
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3840.358358205065!2d-47.89633!3d-15.7321706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a39ef9f3db80d%3A0xe13f918d473a36bd!2sYasmim%20Magalh%C3%A3es%20-%20Psic%C3%B3loga!5e0!3m2!1sen!2sbr!4v1710198164164!5m2!1sen!2sbr"
-                    width="100%" height="450" style="border:0;" allowfullscreen=""
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-            </div>
-        </div>
-
-    </main>
-
-    <footer class="hero-footer has-background-white-bis">
-        <section class="section has-text-centered">
-            <span class="icon-text">
-                <span class="icon">
-                    <i class="fa-solid fa-copyright"></i>
                 </span>
-                <span>
-                    Yasmim Magalhães
-                </span>
-            </span>
 
-        </section>
-    </footer>
+            </section>
+        </footer>
 
-</div>
+    </div>
 
 
 </body>

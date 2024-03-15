@@ -17,6 +17,7 @@
 @import "../node_modules/bulma/sass/elements/image.sass";
 @import "../node_modules/bulma/sass/components/navbar.sass";
 @import "../node_modules/bulma/sass/components/card.sass";
+@import "../node_modules/bulma/sass/components/modal.sass";
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
 @import "../node_modules/bulma/sass/layout/footer.sass";
@@ -67,6 +68,24 @@ html {
   color: #bea337 !important; /* Cor correspondente à classe 'has-text-warning-dark' */
 }
 
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
-
-
+#loader img {
+  animation: heartbeat 1s infinite;   
+}

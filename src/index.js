@@ -8,8 +8,10 @@ Alpine.data('app', () => ({
     minWidth: 768, // Minimum width for desktop devices
     fadeElementList: ["logo", "sobreMim", "abordagem", "academico", "localizacao"],
     imagesLoaded: {},
+    loading: true, // Adicione esta linha
     init() {
         this.loadImages().then(() => {
+            this.loading = false; // Adicione esta linha
             this.showElement();
         });
     },

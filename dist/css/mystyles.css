@@ -3536,7 +3536,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 }
 
 .modal-background {
-  background-color: rgba(10, 10, 10, 0.86);
+  background-color: hsl(0, 0%, 96%);
 }
 
 .modal-content,
@@ -6011,6 +6011,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 
 html {
   scroll-behavior: smooth;
+  font-family: "Montserrat", Courier, monospace;
 }
 
 .fade-in {

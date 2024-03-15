@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
+$modal-background-background-color: hsl(0, 0%, 96%);
+
 // Import only what you need from Bulma
 @import "../node_modules/bulma/sass/base/_all.sass";
 @import "../node_modules/bulma/sass/utilities/_all.sass";
@@ -25,6 +27,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: 'Montserrat', Courier, monospace;
 }
 
 .fade-in {

@@ -32,12 +32,12 @@ func main() {
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("assets"))))
 
-	// http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-	// 	AuthRequired(http.HandlerFunc(handlers.RootHandler)).ServeHTTP(w, r)
-	// })
 	http.HandleFunc("/", handlers.RootHandler)
 	http.HandleFunc("/login", handlers.LoginHandler)
 	http.HandleFunc("/blog", handlers.BlogHandler)
+	http.HandleFunc("/admin", func(w http.ResponseWriter, r *http.Request) {
+		AuthRequired(http.HandlerFunc(handlers.AdminHandler)).ServeHTTP(w, r)
+	})
 
 	println("Start listening on 8080 port")
 	err := http.ListenAndServe(":8080", logRequest(http.DefaultServeMux))

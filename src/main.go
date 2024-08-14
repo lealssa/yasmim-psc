@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"yasmim-psc.com.br/src/handlers"
-	"yasmim-psc.com.br/src/session"
+	"yasmim.psc.br/src/handlers"
+	"yasmim.psc.br/src/session"
 )
 
 func logRequest(handler http.Handler) http.Handler {

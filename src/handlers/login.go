@@ -4,7 +4,7 @@ import (
 	"html/template"
 	"net/http"
 
-	"yasmim-psc.com.br/src/session"
+	"yasmim.psc.br/src/session"
 )
 
 // Função para validar o usuário (substitua pela sua lógica de validação)

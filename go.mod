@@ -1,4 +1,4 @@
-module yasmim-psc.com.br
+module yasmim.psc.br
 
 go 1.22.5
 

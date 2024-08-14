@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"yasmim-psc.com.br/src/auth"
 	"yasmim-psc.com.br/src/handlers"
+	"yasmim-psc.com.br/src/session"
 )
 
 func logRequest(handler http.Handler) http.Handler {
@@ -19,7 +19,7 @@ func logRequest(handler http.Handler) http.Handler {
 func AuthRequired(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Verifica se o usuário está autenticado
-		if !auth.IsAuthenticated(r) {
+		if !session.IsAuthenticated(r) {
 			http.Redirect(w, r, "/login", http.StatusFound)
 			return
 		}

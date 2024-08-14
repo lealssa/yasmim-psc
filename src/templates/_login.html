@@ -1,5 +1,59 @@
 {{ define "body" }}
 <div class="container is-max-widescreen">
-<h1 class="title">Meu login</h1>
+
+    <div class="columns is-centered">
+        <div class="column is-6">
+            <div class="box">
+
+                <!-- Title -->
+                <div class="block has-text-centered p-4">
+                    <h1 class="title">Login</h1>
+                    <h2 class="subtitle">Faça login para acessar</h2>
+                </div>
+
+                <!-- Messages -->
+                {{ if .Message }}
+                <article class="message is-warning">
+                    <div class="message-body has-text-centered">
+                        {{ .Message }}
+                    </div>
+                </article>
+                {{ end }}
+
+                <!-- Fields -->
+                <div class="block">
+
+                    <form action="/login" method="post" novalidate>
+
+                        <!-- CSRF Token -->
+                        <input type="hidden" name="csrf_token" value="{{ .CSRFToken }}">
+
+                        <!-- Username -->
+                        <div class="field">
+                            <label for="username" class="label">Usuário</label>
+                            <div class="control">
+                                <input id="username" name="username" type="text" class="input">
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="field">
+                            <label for="password" class="label">Senha</label>
+                            <div class="control">
+                                <input id="password" name="password" type="password" class="input">
+                            </div>
+                        </div>
+
+                        <button class="button is-link is-outlined is-light is-fullwidth">Login</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 </div>
 {{ end }}

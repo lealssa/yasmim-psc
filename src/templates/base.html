@@ -22,7 +22,7 @@
 
 <body class="has-background-white-ter"></body>
 
-<div id="wrapper" class="hero is-fullheight" x-data="app" @scroll.window="showElement()">
+<div id="wrapper" class="hero is-fullheight">
 
     <header class="hero-head is-primary has-background-white-bis is-hidden-touch">
         <div class="container is-max-widescreen py-6">
@@ -32,35 +32,9 @@
                         <img src="/static/dist/Logo02.png" width="28" height="28">
                     </a>
                 </div>
-
-                <div id="navbarBasicExample" class="navbar-menu">
-
-                    <div class="navbar-start has-text-weight-light is-size-5-tablet">
-                        <a class="navbar-item" href="#sobre-mim">Sobre mim</a>
-                        <a class="navbar-item" href="#abordagem">Abordagem</a>
-                        <a class="navbar-item" href="#servicos">Serviços</a>
-                        <a class="navbar-item" href="#academico">Supervisão clínica</a>
-                        <a class="navbar-item" href="#academico">Cursos de extensão</a>
-                    </div>
-
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <div class="tags has-addons">
-                                <span class="tag is-rounded is-medium">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-phone"></i>
-                                    </span>
-                                </span>
-                                <span class="tag is-rounded is-medium has-text-weight-light">+55 (61)
-                                    99376-7802</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{ template "nav" .}}
             </nav>
-
         </div>
-
     </header>
 
     <main class="hero-body">

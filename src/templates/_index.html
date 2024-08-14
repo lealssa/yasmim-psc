@@ -1,5 +1,32 @@
+{{ define "nav" }}
+<div id="navbarBasicExample" class="navbar-menu">
+
+    <div class="navbar-start has-text-weight-light is-size-5-tablet">
+        <a class="navbar-item" href="#sobre-mim">Sobre mim</a>
+        <a class="navbar-item" href="#abordagem">Abordagem</a>
+        <a class="navbar-item" href="#servicos">Serviços</a>
+        <a class="navbar-item" href="#academico">Supervisão clínica</a>
+        <a class="navbar-item" href="#academico">Cursos de extensão</a>
+    </div>
+
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="tags has-addons">
+                <span class="tag is-rounded is-medium">
+                    <span class="icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </span>
+                </span>
+                <span class="tag is-rounded is-medium has-text-weight-light">+55 (61)
+                    99376-7802</span>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+
 {{ define "body" }}
-<div class="container is-max-widescreen">
+<div class="container is-max-widescreen" x-data="app" @scroll.window="showElement()">
     <div class="columns is-vcentered fade-in" x-ref="logo">
         <div class="column">
             <figure class="image py-5">
@@ -89,7 +116,7 @@
         </div>
     </div>
 
-    <!-- Abordage, -->
+    <!-- Abordagem -->
     <div class="content fade-in" x-ref="abordagem">
 
         <h1 id="abordagem">Abordagem</h1>

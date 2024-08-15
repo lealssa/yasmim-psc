@@ -6,20 +6,22 @@ window.Alpine = Alpine
 
 Alpine.data('app', () => ({
     minWidth: 768, // Minimum width for desktop devices
-    fadeElementList: ["logo", "sobreMim", "abordagem", "academico", "localizacao"],
+    fadeElementList: ["logo", "sobreMim", "abordagem", "academico", "localizacao", "blog"],
     imagesLoaded: {},
     init() {
         this.loadImages().then(() => {
-            this.showElement();
+            this.showElement()
         });
     },
     async loadImages() {
         for (let ref of this.fadeElementList) {
             const el = this.$refs[ref]
-            const images = el.querySelectorAll('img')
-            for (let img of images) {
-                await this.loadImage(img)
-                this.imagesLoaded[img.src] = true
+            if (el) {
+                const images = el.querySelectorAll('img')
+                for (let img of images) {
+                    await this.loadImage(img)
+                    this.imagesLoaded[img.src] = true
+                }
             }
         }
     },
@@ -31,6 +33,7 @@ Alpine.data('app', () => ({
                 resolve(); // Mesmo que a imagem não carregue, resolva a promise
             }
             img.src = img.dataset.src
+            console.log(img.src)
         })
     },
     get isMobile() {
@@ -39,11 +42,13 @@ Alpine.data('app', () => ({
     showElement() {
         this.fadeElementList.forEach(ref => {
             const el = this.$refs[ref]
-            const images = el.querySelectorAll('img')
-            const isInViewport = el.getBoundingClientRect().top < window.innerHeight && el.getBoundingClientRect().bottom >= 0
-            if (this.isMobile || isInViewport) {
-                if (Array.from(images).every(img => this.imagesLoaded[img.src])) {
-                    el.classList.add('show')
+            if (el) {
+                const isInViewport = el.getBoundingClientRect().top < window.innerHeight && el.getBoundingClientRect().bottom >= 0
+                if (this.isMobile || isInViewport) {
+                    const images = el.querySelectorAll('img')
+                    if (Array.from(images).every(img => this.imagesLoaded[img.src])) {
+                        el.classList.add('show')
+                    }
                 }
             }
         })

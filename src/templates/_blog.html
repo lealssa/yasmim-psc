@@ -1,74 +1,86 @@
-{{ define "nav" }}
-<div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start has-text-weight-light is-size-5-tablet">
-        <a class="navbar-item" href="/">Página inicial</a>
-    </div>
-</div>
-{{ end }}
 {{ define "body" }}
-<div class="container is-max-desktop" x-data="{ show: false }" x-init="$nextTick(() => show = true)" x-cloak x-show="show" x-transition.duration.1000ms>
-    <div class="card my-6">
-        <div class="card-image">
-            <figure class="image">
-                <img src="/static/dist/artigo_yasmim.png" alt="Yasmim Magalhães" />
-            </figure>
+<div class="card fade-in" x-ref="blog" id="blog">
+    <div class="card-content">
+        <div class="media">
+            <div class="media-left">
+                <figure class="image is-48x48 is-1by1">
+                    <img class="is-rounded" data-src="/static/dist/yasmim_avatar.jpg" alt="Yasmim Magalhães" />
+                </figure>
+            </div>
+            <div class="media-content">
+                <p class="title is-4">Não é uma questão do que eu não sou. E sim de quem eu poderia ser.</p>
+                <p class="subtitle is-6">
+                    <a href="https://www.instagram.com/yasmim.psc" target="_blank">@yasmim.psc</a>
+                </p>
+            </div>
         </div>
-        <div class="card-content">
-            <div class="media pb-3">
-                <div class="media-left">
-                    <figure class="image is-48x48 is-1by1">
-                        <img class="is-rounded" src="/static/dist/yasmim_avatar.jpg" alt="Yasmim Magalhães" />
-                    </figure>
-                </div>
-                <div class="media-content">
-                    <p class="title is-4">Não é uma questão do que eu não sou. E sim de quem eu poderia ser.</p>
-                    <p class="subtitle is-6">
-                        <a href="https://www.instagram.com/yasmim.psc" target="_blank">@yasmim.psc</a>
+        <div class="columns">
+            <div class="column">
+                <figure class="image">
+                    <img data-src="/static/dist/artigo_yasmim.png" alt="Yasmim Magalhães" />
+                </figure>
+            </div>
+            <div class="column">
+                <div class="content">
+                    <p>
+                        As crianças adoram super-heróis! Os adultos também, eles enchem os cinemas e sustentam os
+                        maiores
+                        sucessos da Marvel e da DC nos cinemas mundiais.
+                    </p>
+                    <p>
+                        Super-heróis fazem coisas exorbitantes; como voar e saltar de prédios, mas principalmente
+                        eles
+                        salvam as pessoas. Acho que ninguém chega ao mundo em uma casa arrumada, há sempre alguém
+                        precisando
+                        ser salvo e percebemos isso logo cedo. Me refiro as crianças que fomos, essas que ainda hoje
+                        querem
+                        salvar aqueles que amamos de algo ruim.
+                    </p>
+                    <p>
+                        A dor da nossa existência é a limitação. Somos vulneráveis demais, nos damos conta disso em
+                        algum
+                        momento e depois negamos. Desenvolvemos comportamentos maníacos para ocupar mil funções e
+                        dar conta
+                        de todas as necessidades a nossa volta. Na maioria das vezes sucumbimos ao cansaço e
+                        fracassamos
+                        nessa tentativa.
+                    </p>
+                    Estamos em uma batalha incessante contra possibilidades de destruição do Ser (doenças,
+                    acidentes,
+                    catástrofes diversas). Um paradoxo que diz: Para viver é preciso superar a morte e preservar a
+                    vida.
+                    <p>
+                        Pensei sobre isso essa semana. Em certa ocasião, a avó doce e cativante de uma amiga se
+                        direcionou a
+                        mim para um abraço. Já há um tempo sem vê-la perguntei como estava: “Minha filha eu estou
+                        com
+                        câncer”. Aquilo foi um súbito espeto na minha alma. Continuou: “A médica disse que pode ser
+                        que leve
+                        tempo para se manifestar. Eu quis vir hoje para a festa, eu gosto da música”
+                    </p>
+                    Então eu lhe disse : “Minha querida, esses médicos tem a mania boba de nos dizer algo que já
+                    sabemos; que um dia vamos morrer! Em todos os outros a gente vai é viver, não é?” Ela concordou
+                    acenando com a cabeça e com um sorriso honesto.
+                    <p>
+                        Gostaria de super poderes aquela hora, e eu não tinha. Fato é que em um mundo de seres
+                        onipotentes,
+                        onipresentes e oniscientes, não há lugar nenhum para ir, nenhuma história para contar, nada
+                        mais a
+                        fazer.
+                    </p>
+                    <p>
+                        Não é um conforto saber que a vida é repleta de sofrimentos e fatalidades, porém, como não
+                        podemos
+                        mudar isso, é preciso fracionar o tempo a nosso favor e nos dedicar as coisas que realmente
+                        importam. O que podemos nos tornar quando aceitamos nossas dolorosas limitações? Como saber
+                        que
+                        limite é esse antes de enfrentar nossa maior ruína?
                     </p>
                 </div>
             </div>
-            <div class="content">
-                <p>
-                    As crianças adoram super-heróis! Os adultos também, eles enchem os cinemas e sustentam os maiores
-                    sucessos da Marvel e da DC nos cinemas mundiais.
-                </p>
-                <p>
-                    Super-heróis fazem coisas exorbitantes; como voar e saltar de prédios, mas principalmente eles
-                    salvam as pessoas. Acho que ninguém chega ao mundo em uma casa arrumada, há sempre alguém precisando
-                    ser salvo e percebemos isso logo cedo. Me refiro as crianças que fomos, essas que ainda hoje querem
-                    salvar aqueles que amamos de algo ruim.
-                </p>
-                <p>
-                    A dor da nossa existência é a limitação. Somos vulneráveis demais, nos damos conta disso em algum
-                    momento e depois negamos. Desenvolvemos comportamentos maníacos para ocupar mil funções e dar conta
-                    de todas as necessidades a nossa volta. Na maioria das vezes sucumbimos ao cansaço e fracassamos
-                    nessa tentativa.
-                </p>
-                Estamos em uma batalha incessante contra possibilidades de destruição do Ser (doenças, acidentes,
-                catástrofes diversas). Um paradoxo que diz: Para viver é preciso superar a morte e preservar a vida.
-                <p>
-                    Pensei sobre isso essa semana. Em certa ocasião, a avó doce e cativante de uma amiga se direcionou a
-                    mim para um abraço. Já há um tempo sem vê-la perguntei como estava: “Minha filha eu estou com
-                    câncer”. Aquilo foi um súbito espeto na minha alma. Continuou: “A médica disse que pode ser que leve
-                    tempo para se manifestar. Eu quis vir hoje para a festa, eu gosto da música”
-                </p>
-                Então eu lhe disse : “Minha querida, esses médicos tem a mania boba de nos dizer algo que já
-                sabemos; que um dia vamos morrer! Em todos os outros a gente vai é viver, não é?” Ela concordou
-                acenando com a cabeça e com um sorriso honesto.
-                <p>
-                    Gostaria de super poderes aquela hora, e eu não tinha. Fato é que em um mundo de seres onipotentes,
-                    onipresentes e oniscientes, não há lugar nenhum para ir, nenhuma história para contar, nada mais a
-                    fazer.
-                </p>
-                <p>
-                    Não é um conforto saber que a vida é repleta de sofrimentos e fatalidades, porém, como não podemos
-                    mudar isso, é preciso fracionar o tempo a nosso favor e nos dedicar as coisas que realmente
-                    importam. O que podemos nos tornar quando aceitamos nossas dolorosas limitações? Como saber que
-                    limite é esse antes de enfrentar nossa maior ruína?
-                </p>
-                <p class="is-italic has-text-weight-medium">Postado por Yasmim Magalhães em 22 de fevereiro de 2022</p>
-            </div>
         </div>
-    </div>  
+        <p class="is-italic has-text-weight-medium has-text-centered">Postado por Yasmim Magalhães em 22 de fevereiro de
+            2022</p>
+    </div>
 </div>
 {{ end }}

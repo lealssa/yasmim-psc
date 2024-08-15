@@ -7,8 +7,8 @@
 
                 <!-- Title -->
                 <div class="block has-text-centered p-4">
-                    <h1 class="title">Login</h1>
-                    <h2 class="subtitle">Faça login para acessar</h2>
+                    <h1 class="title">Alteração de senha</h1>
+                    <h2 class="subtitle">Preencha os campos para alterar a senha</h2>
                 </div>
 
                 <!-- Messages -->
@@ -23,31 +23,36 @@
                 <!-- Fields -->
                 <div class="block">
 
-                    <form action="/login" method="post" novalidate>
+                    <form action="/altera-senha" method="post" novalidate>
 
                         <!-- CSRF Token -->
                         <input type="hidden" name="csrf_token" value="{{ .CSRFToken }}">
 
-                        <!-- Username -->
+                        <!-- Old Password -->
                         <div class="field">
-                            <label for="username" class="label">Usuário</label>
+                            <label for="old-password" class="label">Senha antiga</label>
                             <div class="control">
-                                <input id="username" name="username" type="text" class="input">
+                                <input id="old-password" name="old-password" type="password" class="input">
                             </div>
                         </div>
 
-                        <!-- Password -->
+                        <!-- New Password -->
                         <div class="field">
-                            <label for="password" class="label">Senha</label>
+                            <label for="new-password" class="label">Nova senha</label>
                             <div class="control">
-                                <input id="password" name="password" type="password" class="input">
+                                <input id="new-password" name="new-password" type="password" class="input">
                             </div>
                         </div>
 
-                        <div class="buttons">
-                            <button class="button is-link is-outlined is-light is-fullwidth">Login</button>
-                            <a href="/lembrar-senha" class="is-underlined">Esqueci minha senha</a>
-                        </div>
+                        <!-- Retype Password -->
+                        <div class="field">
+                            <label for="retype-password" class="label">Repita a senha</label>
+                            <div class="control">
+                                <input id="retype-password" name="retype-password" type="password" class="input">
+                            </div>
+                        </div>                        
+
+                        <button class="button is-link is-outlined is-light is-fullwidth">Alterar senha</button>
 
                     </form>
 

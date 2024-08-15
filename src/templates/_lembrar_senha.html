@@ -1,0 +1,54 @@
+{{ define "body" }}
+<div class="container is-max-widescreen" x-data="{ show: false }" x-init="$nextTick(() => show = true)" x-cloak x-show="show" x-transition.duration.1000ms>
+
+    <div class="columns is-centered">
+        <div class="column is-6">
+            <div class="box">
+
+                <!-- Title -->
+                <div class="block has-text-centered py-6">
+                    <h1 class="title">Lembrar senha</h1>
+                    <h2 class="subtitle">Uma nova senha será gerada e enviada para o email cadastrado</h2>
+                </div>
+
+                <!-- Messages -->
+                {{ if .Message }}
+                <article class="message is-{{ .MessageType }}">
+                    <div class="message-body has-text-centered">
+                        {{ .Message }}
+                    </div>
+                </article>
+                {{ end }}
+
+                <!-- Fields -->
+                <div class="block">
+
+                    <form action="/lembrar-senha" method="post" novalidate>
+
+                        <!-- CSRF Token -->
+                        <input type="hidden" name="csrf_token" value="{{ .CSRFToken }}">
+
+                        <!-- Email -->
+                        <div class="field">
+                            <label for="email" class="label">Email cadastrado</label>
+                            <div class="control">
+                                <input id="email" name="email" type="text" class="input" value="{{ .Email }}" disabled>
+                            </div>
+                        </div>       
+
+                        <div class="buttons">                            
+                            <button class="button is-link is-outlined is-light is-fullwidth">Solicitar nova senha</button>
+                            <a href="/login" class="is-underlined">Voltar para o login</a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{{ end }}

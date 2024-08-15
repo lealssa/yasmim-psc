@@ -34,6 +34,8 @@ func main() {
 
 	http.HandleFunc("/", handlers.RootHandler)
 	http.HandleFunc("/login", handlers.LoginHandler)
+	http.HandleFunc("/altera-senha", handlers.ChangePasswordHandler)
+	http.HandleFunc("/lembrar-senha", handlers.ForgetPasswordHandler)
 	http.HandleFunc("/blog", handlers.BlogHandler)
 	http.HandleFunc("/admin", func(w http.ResponseWriter, r *http.Request) {
 		AuthRequired(http.HandlerFunc(handlers.AdminHandler)).ServeHTTP(w, r)

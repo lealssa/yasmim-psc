@@ -33,7 +33,6 @@ Alpine.data('app', () => ({
                 resolve(); // Mesmo que a imagem não carregue, resolva a promise
             }
             img.src = img.dataset.src
-            console.log(img.src)
         })
     },
     get isMobile() {

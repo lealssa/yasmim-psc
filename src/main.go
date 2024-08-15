@@ -2,31 +2,11 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
 	"yasmim.psc.br/src/handlers"
-	"yasmim.psc.br/src/session"
+	"yasmim.psc.br/src/middleware"
 )
-
-func logRequest(handler http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		log.Printf("%s %s %s\n", r.RemoteAddr, r.Method, r.URL)
-		handler.ServeHTTP(w, r)
-	})
-}
-
-func AuthRequired(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// Verifica se o usuário está autenticado
-		if !session.IsAuthenticated(r) {
-			http.Redirect(w, r, "/login", http.StatusFound)
-			return
-		}
-		// Se o usuário estiver autenticado, permite o acesso à próxima função
-		next.ServeHTTP(w, r)
-	})
-}
 
 func main() {
 
@@ -37,12 +17,11 @@ func main() {
 	http.HandleFunc("/altera-senha", handlers.ChangePasswordHandler)
 	http.HandleFunc("/lembrar-senha", handlers.ForgetPasswordHandler)
 	http.HandleFunc("/blog", handlers.BlogHandler)
-	http.HandleFunc("/admin", func(w http.ResponseWriter, r *http.Request) {
-		AuthRequired(http.HandlerFunc(handlers.AdminHandler)).ServeHTTP(w, r)
-	})
+
+	http.Handle("/admin", middleware.AuthRequiredMiddleware(http.HandlerFunc(handlers.AdminHandler)))
 
 	println("Start listening on 8080 port")
-	err := http.ListenAndServe(":8080", logRequest(http.DefaultServeMux))
+	err := http.ListenAndServe(":8080", middleware.LogMiddleware(http.DefaultServeMux))
 	if err != nil {
 		fmt.Printf("Error starting application: %s", err.Error())
 	}

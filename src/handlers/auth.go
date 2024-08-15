@@ -16,13 +16,6 @@ func validateUser(username, password string) bool {
 	return username == "tiago" && password == "senha" // Retorna true se as credenciais forem válidas
 }
 
-type authData struct {
-	Message     string
-	MessageType string
-	Email       string
-	CSRFToken   string
-}
-
 func maskEmail(email string) string {
 	if len(email) < 5 {
 		return email // Email muito curto para ocultar
@@ -43,7 +36,7 @@ func maskEmail(email string) string {
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
-	data := authData{}
+	data := templateData{}
 
 	if r.Method == http.MethodPost {
 
@@ -67,22 +60,12 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 	data.CSRFToken = session.GenerateCSRFToken(w, r)
 
-	tmpl, err := template.ParseFiles("templates/base.html", "templates/_login.html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	err = tmpl.ExecuteTemplate(w, "base", data)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+	executeTemplate(w, "_login", data)
 }
 
 func ChangePasswordHandler(w http.ResponseWriter, r *http.Request) {
 
-	data := authData{}
+	data := templateData{}
 
 	if r.Method == http.MethodPost {
 
@@ -107,22 +90,12 @@ func ChangePasswordHandler(w http.ResponseWriter, r *http.Request) {
 
 	data.CSRFToken = session.GenerateCSRFToken(w, r)
 
-	tmpl, err := template.ParseFiles("templates/base.html", "templates/_altera_senha.html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	err = tmpl.ExecuteTemplate(w, "base", data)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+	executeTemplate(w, "_altera_senha", data)
 }
 
 func ForgetPasswordHandler(w http.ResponseWriter, r *http.Request) {
 
-	data := authData{}
+	data := templateData{}
 	data.MessageType = "warning"
 
 	if r.Method == http.MethodPost {
@@ -140,15 +113,5 @@ func ForgetPasswordHandler(w http.ResponseWriter, r *http.Request) {
 	data.CSRFToken = session.GenerateCSRFToken(w, r)
 	data.Email = maskEmail("yasmim-psc@gmail.com")
 
-	tmpl, err := template.ParseFiles("templates/base.html", "templates/_lembrar_senha.html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	err = tmpl.ExecuteTemplate(w, "base", data)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+	executeTemplate(w, "_lembrar_senha", data)
 }
